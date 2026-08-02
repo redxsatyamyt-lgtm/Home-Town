@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftHub - Ultimate Minecraft Creator & Player Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Faded Background Image Overlay -->
+    <div class="bg-overlay"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="pixel-text">CRAFT</span><span>HUB</span>
+        </div>
+        <nav>
+            <button class="nav-btn active" onclick="switchTab('home')">Home</button>
+            <button class="nav-btn" onclick="switchTab('creators')">For YouTubers</button>
+            <button class="nav-btn" onclick="switchTab('players')">For Players</button>
+            <button class="nav-btn" onclick="switchTab('downloads')">Top Downloads</button>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="container">
+
+        <!-- 1. HOME SECTION -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1 class="pixel-title">EVERYTHING MINECRAFT. ONE PLACE.</h1>
+                <p class="subtitle">Elevate your content recording setup or optimize your PvP gameplay with curated mods, texture packs, and creator tools.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="switchTab('creators')">🎥 Creator Toolkit</button>
+                    <button class="btn btn-secondary" onclick="switchTab('players')">⚔️ Player Resources</button>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card">
+                    <h2>🎬 For Content Creators</h2>
+                    <p>Unlock cinematically smooth camera paths, 4K recording optimizations, thumbnail assets, and OBS integration setups.</p>
+                    <button class="card-btn" onclick="switchTab('creators')">Explore Creator Gear →</button>
+                </div>
+                <div class="glass-card">
+                    <h2>🗡️ For Competitive Players</h2>
+                    <p>Boost your FPS with Sodium/Iris, get high-visibility PvP 16x texture packs, and level up with specialized client mods.</p>
+                    <button class="card-btn" onclick="switchTab('players')">Explore Player Mods →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FOR YOUTUBERS / CREATORS SECTION -->
+        <section id="creators" class="page-section">
+            <div class="section-header">
+                <h2>🎥 Creator & Recording Studio</h2>
+                <p>Essential utilities for recording timelapses, cinematic videos, and managing YouTube assets.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <span class="badge badge-mod">Mod</span>
+                    <h3>Replay Mod</h3>
+                    <p>Record your game, create smooth 360° camera angles, and render cinematic timelapses without external camera accounts.</p>
+                    <a href="https://modrinth.com/mod/replaymod" target="_blank" class="card-link">Download →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-mod">Mod</span>
+                    <h3>Bobby (128 Chunks)</h3>
+                    <p>Allows extreme render distances on servers by caching block data locally. Perfect for filming huge background scenery.</p>
+                    <a href="https://modrinth.com/mod/bobby" target="_blank" class="card-link">Download →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-tool">Setup</span>
+                    <h3>OBS Studio Settings</h3>
+                    <p>Optimal Bitrate settings for 1080p60 & 4K Minecraft video capture without dropping frames.</p>
+                    <a href="#" class="card-link">View Config →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-resource">Assets</span>
+                    <h3>Free-Look Pack</h3>
+                    <p>Manipulate third-person perspective freely to snap clean, cinematic skin poses for YouTube thumbnails.</p>
+                    <a href="#" class="card-link">Download →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FOR NORMAL / PVP PLAYERS SECTION -->
+        <section id="players" class="page-section">
+            <div class="section-header">
+                <h2>⚔️ PvP, Performance & Textures</h2>
+                <p>Boost your FPS and dominate PvP servers with clean UI and low-lag packs.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <span class="badge badge-perf">Performance</span>
+                    <h3>Sodium & Iris Engine</h3>
+                    <p>Replaces default rendering logic to multiply your FPS up to 3x while giving full Shader support.</p>
+                    <a href="https://modrinth.com/mod/sodium" target="_blank" class="card-link">Download →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-pvp">PvP Pack</span>
+                    <h3>Clean UI & Short Swords</h3>
+                    <p>Minimizes HUD distraction, lowers shield height, and shrinks weapon length for unobstructed visibility.</p>
+                    <a href="#" class="card-link">Download Pack →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-mod">Utility</span>
+                    <h3>Appleskin & Status Hud</h3>
+                    <p>Displays saturation levels, armor status, and active potion effects directly on your HUD.</p>
+                    <a href="https://modrinth.com/mod/appleskin" target="_blank" class="card-link">Download →</a>
+                </div>
+
+                <div class="glass-card">
+                    <span class="badge badge-pvp">PvP</span>
+                    <h3>Lunar / Feather Client</h3>
+                    <p>All-in-one lightweight client integrations pre-loaded with essential PvP and survival mods.</p>
+                    <a href="#" class="card-link">Learn More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TOP DOWNLOADS SECTION -->
+        <section id="downloads" class="page-section">
+            <div class="section-header">
+                <h2>🔥 Trending Downloads</h2>
+                <p>Quick access links for all essential components.</p>
+            </div>
+
+            <table class="download-table">
+                <thead>
+                    <tr>
+                        <th>Resource Name</th>
+                        <th>Target Audience</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Replay Mod</td>
+                        <td>YouTubers</td>
+                        <td>Recording Tool</td>
+                        <td><a href="https://modrinth.com/mod/replaymod" class="table-btn">Get Link</a></td>
+                    </tr>
+                    <tr>
+                        <td>Sodium FPS Booster</td>
+                        <td>All Players</td>
+                        <td>Optimization</td>
+                        <td><a href="https://modrinth.com/mod/sodium" class="table-btn">Get Link</a></td>
+                    </tr>
+                    <tr>
+                        <td>16x PvP Texture Pack</td>
+                        <td>PvP Gamers</td>
+                        <td>Resource Pack</td>
+                        <td><a href="#" class="table-btn">Get Link</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
