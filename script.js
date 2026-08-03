@@ -41,13 +41,58 @@ function switchTab(tabId) {
 // Make switchTab accessible everywhere in HTML
 window.switchTab = switchTab;
 
+// Sub-Filter Logic (Mods vs Texture Packs Filtering)
+window.filterType = function(sectionId, filterType, btnElement) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    // Toggle Active State on Sub-Filter Buttons
+    const btns = section.querySelectorAll('.sub-btn');
+    btns.forEach(b => b.classList.remove('active'));
+    btnElement.classList.add('active');
+
+    // Filter Cards inside this section
+    const cards = section.querySelectorAll('.glass-card');
+    cards.forEach(card => {
+        const badge = card.getAttribute('data-badge');
+        if (filterType === 'all') {
+            card.style.display = 'block';
+        } else if (filterType === 'mod' && (badge === 'badge-mod' || badge === 'badge-perf' || badge === 'badge-pvp' || badge === 'badge-tool')) {
+            card.style.display = 'block';
+        } else if (filterType === 'resource' && badge === 'badge-resource') {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+};
+
+// Realtime Search Logic
+window.searchCards = function() {
+    const queryStr = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.glass-card');
+
+    cards.forEach(card => {
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText.toLowerCase() : '';
+        const desc = card.querySelector('p') ? card.querySelector('p').innerText.toLowerCase() : '';
+
+        if (title.includes(queryStr) || desc.includes(queryStr)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+};
+
 // Realtime Mods Fetcher from Firestore
 function loadDynamicMods() {
     const q = query(collection(db, "mods_data"), orderBy("createdAt", "desc"));
 
     onSnapshot(q, (snapshot) => {
+        const homeGrid = document.querySelector("#home-cards-grid");
         const creatorsGrid = document.querySelector("#creators .cards-grid");
         const playersGrid = document.querySelector("#players .cards-grid");
+        const toolsGrid = document.querySelector("#tools .cards-grid");
 
         snapshot.docChanges().forEach((change) => {
             if (change.type === "added") {
@@ -62,7 +107,7 @@ function loadDynamicMods() {
                 else if (data.badge === "badge-pvp") { badgeClass = "badge-pvp"; badgeLabel = "PVP"; }
 
                 const cardHTML = `
-                    <div class="glass-card">
+                    <div class="glass-card" data-badge="${badgeClass}">
                         <span class="badge ${badgeClass}">${badgeLabel}</span>
                         <h3>${data.title}</h3>
                         <p>${data.desc}</p>
@@ -70,10 +115,15 @@ function loadDynamicMods() {
                     </div>
                 `;
 
-                if (data.section === "creators" && creatorsGrid) {
+                // Section Placement Logic
+                if (data.section === "home" && homeGrid) {
+                    homeGrid.insertAdjacentHTML("afterbegin", cardHTML);
+                } else if (data.section === "creators" && creatorsGrid) {
                     creatorsGrid.insertAdjacentHTML("afterbegin", cardHTML);
                 } else if (data.section === "players" && playersGrid) {
                     playersGrid.insertAdjacentHTML("afterbegin", cardHTML);
+                } else if (data.section === "tools" && toolsGrid) {
+                    toolsGrid.insertAdjacentHTML("afterbegin", cardHTML);
                 }
             }
         });
