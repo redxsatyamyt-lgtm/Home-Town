@@ -272,64 +272,65 @@ nav::-webkit-scrollbar {
     }
 }
 
-/* FOOTER SOCIAL SECTION FIX */
+/* COMPACT FOOTER SECTION */
 .social-footer {
     background: rgba(12, 16, 24, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 10px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 25px;
 }
 
 .social-content h3 {
     color: #55FF55;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
 }
 
 .social-content p {
-    color: #909ab0;
-    font-size: 0.85rem;
-    margin-bottom: 20px;
+    color: #808a9d;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
 }
 
 .social-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 25px;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .social-btn {
-    padding: 10px 18px;
-    border-radius: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
     text-decoration: none !important;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #ffffff !important;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: inline-block;
 }
 
 .social-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+    opacity: 0.9;
 }
 
 .social-btn.yt {
-    background: #FF0000 !important;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+    background: #e60000 !important;
+    box-shadow: 0 0 8px rgba(230, 0, 0, 0.3);
 }
 
 .social-btn.yt-secondary {
-    background: #cc0000 !important;
+    background: #b30000 !important;
 }
 
 .social-btn.discord {
-    background: #5865F2 !important;
-    box-shadow: 0 0 12px rgba(88, 101, 242, 0.4);
+    background: #4752c4 !important;
+    box-shadow: 0 0 8px rgba(71, 82, 196, 0.3);
 }
 
 .social-btn.insta {
@@ -337,6 +338,6 @@ nav::-webkit-scrollbar {
 }
 
 .copyright {
-    font-size: 0.75rem;
-    color: #777;
+    font-size: 0.7rem;
+    color: #666;
 }
