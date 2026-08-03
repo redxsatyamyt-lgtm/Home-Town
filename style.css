@@ -272,24 +272,24 @@ nav::-webkit-scrollbar {
     }
 }
 
-/* COMPACT FOOTER SECTION */
+/* COMPACT FOOTER SOCIAL SECTION */
 .social-footer {
     background: rgba(12, 16, 24, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 16px 10px;
+    padding: 18px 15px 12px; /* Decreased padding */
     text-align: center;
     margin-top: 25px;
 }
 
 .social-content h3 {
     color: #55FF55;
-    font-size: 0.95rem;
+    font-size: 1rem; /* Smaller heading */
     margin-bottom: 4px;
 }
 
 .social-content p {
-    color: #808a9d;
-    font-size: 0.75rem;
+    color: #909ab0;
+    font-size: 0.78rem; /* Smaller text */
     margin-bottom: 12px;
 }
 
@@ -297,40 +297,41 @@ nav::-webkit-scrollbar {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 8px; /* Tighter gap */
     margin-bottom: 12px;
 }
 
 .social-btn {
-    padding: 6px 12px;
+    padding: 6px 12px; /* Smaller, compact buttons */
     border-radius: 6px;
     text-decoration: none !important;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: #ffffff !important;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .social-btn:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 .social-btn.yt {
-    background: #e60000 !important;
-    box-shadow: 0 0 8px rgba(230, 0, 0, 0.3);
+    background: #FF0000 !important;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
 }
 
 .social-btn.yt-secondary {
-    background: #b30000 !important;
+    background: #cc0000 !important;
 }
 
 .social-btn.discord {
-    background: #4752c4 !important;
-    box-shadow: 0 0 8px rgba(71, 82, 196, 0.3);
+    background: #5865F2 !important;
+    box-shadow: 0 0 8px rgba(88, 101, 242, 0.3);
 }
 
 .social-btn.insta {
