@@ -270,4 +270,71 @@ nav::-webkit-scrollbar {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
+    /* FOOTER SOCIAL SECTION */
+.social-footer {
+    background: rgba(12, 16, 24, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 15px;
+    text-align: center;
+    margin-top: 40px;
 }
+
+.social-content h3 {
+    color: #55FF55;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.social-content p {
+    color: #909ab0;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+}
+
+.social-btn.yt {
+    background: #FF0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.social-btn.yt-secondary {
+    background: #cc0000;
+}
+
+.social-btn.discord {
+    background: #5865F2;
+    box-shadow: 0 0 10px rgba(88, 101, 242, 0.3);
+}
+
+.social-btn.insta {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: #555;
+}
+
