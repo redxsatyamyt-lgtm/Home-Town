@@ -12,10 +12,11 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    /* ADD THESE 3 LINES TO FIX FOOTER TO BOTTOM */
+    /* FIX FOOTER TO BOTTOM */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-bottom: 70px; /* Space for ultra-slim footer */
 }
 
 /* FADED BACKGROUND IMAGE EFFECT */
@@ -65,6 +66,29 @@ body::before {
 }
 .logo .pixel-text { color: #55FF55; }
 
+/* SEARCH BAR IN NAVBAR */
+.search-box {
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.8rem;
+    outline: none;
+    transition: 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #55FF55;
+    box-shadow: 0 0 8px rgba(85, 255, 85, 0.3);
+}
+
 /* HORIZONTAL SCROLLABLE NAV FOR MOBILE */
 nav {
     display: flex;
@@ -94,6 +118,32 @@ nav::-webkit-scrollbar {
 .nav-btn:hover, .nav-btn.active {
     color: #fff;
     background: rgba(85, 255, 85, 0.2);
+    border-color: #55FF55;
+}
+
+/* SUB FILTER BUTTONS (MODS ONLY / TEXTURE PACKS) */
+.sub-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sub-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #8892a0;
+    padding: 5px 14px;
+    border-radius: 15px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.sub-btn:hover, .sub-btn.active {
+    color: #55FF55;
+    background: rgba(85, 255, 85, 0.1);
     border-color: #55FF55;
 }
 
@@ -173,6 +223,12 @@ nav::-webkit-scrollbar {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 18px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(85, 255, 85, 0.3);
 }
 
 .glass-card h2, .glass-card h3 {
@@ -255,6 +311,10 @@ nav::-webkit-scrollbar {
     nav {
         width: auto;
         overflow-x: visible;
+    }
+
+    .search-box {
+        width: auto;
     }
 
     .hero-actions {
