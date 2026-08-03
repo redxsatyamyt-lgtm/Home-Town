@@ -271,6 +271,7 @@ nav::-webkit-scrollbar {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 }
+
 /* FOOTER SOCIAL SECTION FIX */
 .social-footer {
     background: rgba(12, 16, 24, 0.95);
