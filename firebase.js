@@ -1,9 +1,6 @@
-// Firebase SDKs Import (via CDN)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// Your Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDMnqwF7Q3S68PDjtKhYLSCdJUzTHSGgTw",
   authDomain: "verse-ai-cc1c6.firebaseapp.com",
@@ -14,9 +11,13 @@ const firebaseConfig = {
   measurementId: "G-N6LEMNS4M1"
 };
 
-// Initialize Firebase & Database
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 
-console.log("🔥 Firebase & Firestore Database Connected Successfully!");
+// Global functions taaki Admin Panel aur Main Site ise use kar sake
+window.db = db;
+window.getDocs = getDocs;
+window.collection = collection;
+window.addDoc = addDoc;
+
+console.log("🔥 Firebase DB Ready for Dynamic Content!");
