@@ -1,50 +1,49 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+// Firebase Setup
+const firebaseConfig = {
+  apiKey: "AIzaSyDMnqwF7Q3S68PDjtKhYLSCdJUzTHSGgTw",
+  authDomain: "verse-ai-cc1c6.firebaseapp.com",
+  projectId: "verse-ai-cc1c6",
+  storageBucket: "verse-ai-cc1c6.firebasestorage.app",
+  messagingSenderId: "2670754048",
+  appId: "1:2670754048:web:21808e7908bd8b5eaf1be5",
+  measurementId: "G-N6LEMNS4M1"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 // SPA Tab Switching Logic
 function switchTab(tabId) {
-    // Hide all sections
     const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
+    sections.forEach(section => section.classList.remove('active'));
 
-    // Remove active status from all navigation buttons
     const navButtons = document.querySelectorAll('.nav-btn');
-    navButtons.forEach(btn => {
-        btn.classList.remove('active');
-    });
+    navButtons.forEach(btn => btn.classList.remove('active'));
 
-    // Display selected section
     const targetSection = document.getElementById(tabId);
     if (targetSection) {
         targetSection.classList.add('active');
     }
 
-    // Highlight active nav button
     const activeNavBtn = Array.from(navButtons).find(btn => 
-        btn.getAttribute('onclick').includes(tabId)
+        btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)
     );
     if (activeNavBtn) {
         activeNavBtn.classList.add('active');
     }
 
-    // Scroll back to top smoothly
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// MAKE SWITCHTAB GLOBAL FOR HTML
+// Make switchTab accessible everywhere in HTML
 window.switchTab = switchTab;
 
-// ==========================================
-// FIREBASE SE DYNAMIC MODS LOAD KARNE KA CODE
-// ==========================================
-import { collection, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
+// Realtime Mods Fetcher from Firestore
 function loadDynamicMods() {
-    if (!window.db) {
-        setTimeout(loadDynamicMods, 500); // DB initialize hone tak wait karega
-        return;
-    }
-
-    const q = query(collection(window.db, "mods_data"), orderBy("createdAt", "desc"));
+    const q = query(collection(db, "mods_data"), orderBy("createdAt", "desc"));
 
     onSnapshot(q, (snapshot) => {
         const creatorsGrid = document.querySelector("#creators .cards-grid");
@@ -78,8 +77,10 @@ function loadDynamicMods() {
                 }
             }
         });
+    }, (error) => {
+        console.error("Firebase fetch error: ", error);
     });
 }
 
-// Page load hote hi run hoga
+// Execute on load
 document.addEventListener("DOMContentLoaded", loadDynamicMods);
