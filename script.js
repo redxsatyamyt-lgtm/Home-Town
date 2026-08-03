@@ -29,6 +29,10 @@ function switchTab(tabId) {
     // Scroll back to top smoothly
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// MAKE SWITCHTAB GLOBAL FOR HTML
+window.switchTab = switchTab;
+
 // ==========================================
 // FIREBASE SE DYNAMIC MODS LOAD KARNE KA CODE
 // ==========================================
