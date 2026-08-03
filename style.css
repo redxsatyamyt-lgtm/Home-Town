@@ -12,6 +12,10 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    /* ADD THESE 3 LINES TO FIX FOOTER TO BOTTOM */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* FADED BACKGROUND IMAGE EFFECT */
@@ -98,6 +102,7 @@ nav::-webkit-scrollbar {
     max-width: 1100px;
     margin: 20px auto;
     padding: 0 16px;
+    flex: 1; /* Pushes footer to the bottom */
 }
 
 .page-section {
@@ -274,11 +279,15 @@ nav::-webkit-scrollbar {
 
 /* ULTRA SLIM FOOTER BAR */
 .social-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: rgba(12, 16, 24, 0.98);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 8px 10px !important; /* Extremely small top/bottom padding */
+    padding: 8px 10px !important;
     text-align: center;
-    margin-top: 15px;
+    z-index: 999;
 }
 
 /* Hide headings or big descriptions inside footer */
