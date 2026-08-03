@@ -272,73 +272,54 @@ nav::-webkit-scrollbar {
     }
 }
 
-/* COMPACT FOOTER SOCIAL SECTION */
+/* ULTRA SLIM FOOTER BAR */
 .social-footer {
-    background: rgba(12, 16, 24, 0.95);
+    background: rgba(12, 16, 24, 0.98);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 18px 15px 12px; /* Decreased padding */
+    padding: 8px 10px !important; /* Extremely small top/bottom padding */
     text-align: center;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
-.social-content h3 {
-    color: #55FF55;
-    font-size: 1rem; /* Smaller heading */
-    margin-bottom: 4px;
-}
-
+/* Hide headings or big descriptions inside footer */
+.social-content h3, 
 .social-content p {
-    color: #909ab0;
-    font-size: 0.78rem; /* Smaller text */
-    margin-bottom: 12px;
+    display: none !important;
 }
 
 .social-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px; /* Tighter gap */
-    margin-bottom: 12px;
+    gap: 6px;
+    margin-bottom: 4px;
 }
 
 .social-btn {
-    padding: 6px 12px; /* Smaller, compact buttons */
-    border-radius: 6px;
+    padding: 4px 10px !important; /* Compact button height */
+    border-radius: 5px;
     text-decoration: none !important;
-    font-size: 0.78rem;
+    font-size: 0.72rem !important;
     font-weight: 600;
     color: #ffffff !important;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: inline-flex;
     align-items: center;
-    gap: 5px;
 }
 
 .social-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
-.social-btn.yt {
-    background: #FF0000 !important;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
-}
-
-.social-btn.yt-secondary {
-    background: #cc0000 !important;
-}
-
-.social-btn.discord {
-    background: #5865F2 !important;
-    box-shadow: 0 0 8px rgba(88, 101, 242, 0.3);
-}
-
-.social-btn.insta {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
-}
+.social-btn.yt { background: #FF0000 !important; }
+.social-btn.yt-secondary { background: #cc0000 !important; }
+.social-btn.discord { background: #5865F2 !important; }
+.social-btn.insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important; }
 
 .copyright {
-    font-size: 0.7rem;
-    color: #666;
+    font-size: 0.65rem !important;
+    color: #555;
+    margin: 0 !important;
 }
